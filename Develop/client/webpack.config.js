@@ -18,10 +18,12 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+      // Generate html file
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './index.html',
         title: 'Just Another Text Editor',
       }),
+      // Generate a manifest file
       new WebpackPwaManifest({
         name: 'Just Another Text Editor',
         short_name: 'J.A.T.E',
@@ -30,10 +32,17 @@ module.exports = () => {
         background_color: '#ffffff',
         theme_color: '#ffffff',
         display: 'standalone',
-        icon: path.resolve(__dirname, 'src/images/logo.png'),
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ]
       }),
+      // Custom service worker
       new InjectManifest({
-        swSrc: './client/src-sw.js',
+        swSrc: './src-sw.js',
         swDest: 'src-sw.js',
       })
     ],
