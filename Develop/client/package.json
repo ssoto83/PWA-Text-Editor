@@ -1,35 +1,32 @@
 {
-    "name": "jate",
-    "version": "1.0.0",
-    "main": "server.js",
+    "name": "JATE",
     "scripts": {
-        "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
-        "start": "npm run build && cd server && node server.js",
-        "server": "cd server nodemon server.j --ignore client",
-        "build": "cd client && npm run build",
-        "install": "cd server && npm i && cd ../client && npm i",
-        "client": "cd client && npm start"
+      "dev": "webpack-dev-server",
+      "build": "webpack --mode production",
+      "start": "webpack --watch"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "express": "^4.17.1",
-        "if-env": "^1.0.4",
-        "babel-loader": "^8.1.0",
-        "css-loader": "^5.2.0",
-        "style-loader": "^2.0.0",
-        "webpack": "^5.0.0",
-        "webpack-cli": "^4.0.0",
-        "webpack-dev-server": "^3.11.0",
-        "workbox-webpack-plugin": "^6.0.0"
-    },
+    "author": "2U",
+    "license": "UNLICENSED",
     "devDependencies": {
-        "@babel/core": "^7.12.0",
-        "@babel/preset-env": "^7.12.0",
-        "@babel/plugin-proposal-object-rest-spread": "^7.12.0",
-        "@babel/transform-runtime": "^7.12.0",
-        "html-webpack-plugin": "^5.0.0",
-        "webpack-pwa-manifest": "^3.0.0"
+      "@babel/core": "^7.15.0",
+      "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
+      "@babel/plugin-transform-runtime": "^7.15.0",
+      "@babel/preset-env": "^7.15.0",
+      "@babel/runtime": "^7.15.3",
+      "babel-loader": "^8.2.2",
+      "css-loader": "^6.2.0",
+      "html-webpack-plugin": "^5.3.2",
+      "http-server": "^0.11.1",
+      "style-loader": "^3.2.1",
+      "webpack": "^5.51.1",
+      "webpack-cli": "^4.8.0",
+      "webpack-dev-server": "^4.0.0",
+      "webpack-pwa-manifest": "^4.3.0",
+      "workbox-webpack-plugin": "^6.2.4"
+    },
+    "dependencies": {
+      "code-mirror-themes": "^1.0.0",
+      "idb": "^6.1.2"
     }
-}
+  }
+  
