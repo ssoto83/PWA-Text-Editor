@@ -22,7 +22,7 @@ Just Another Text Editor (J.A.T.E) is a Progressive Web App (PWA) that allows us
 * PWA capabilities: Installable on desktops and mobile devices  
 
 ## Technologies Used  
-- Frontend: HTML, CSS, JavaScript  
+- Frontend: HTML, CSS, JavaScripts 
 - Build Tools: Webpack, Babel  
 - Service Workers: Workbox for caching and offline functionality  
 - PWA: Webpack PWA Manifest for app configuration  
