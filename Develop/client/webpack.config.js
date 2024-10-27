@@ -32,6 +32,8 @@ module.exports = () => {
         background_color: '#ffffff',
         theme_color: '#ffffff',
         display: 'standalone',
+        fingerprints: false,
+        inject: true,
         icons: [
           {
             src: path.resolve('src/images/logo.png'),

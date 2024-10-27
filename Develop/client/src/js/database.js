@@ -16,7 +16,13 @@ const initdb = async () =>
 export const putDb = async (content) => {
   console.error('adding content to the database');
   const db = await openDB('jate', 1);
-  await db.add('jate', {content });
+  if (id) {
+          // If an ID is provided, update the existing entry
+    await db.put('jate', { id, content });
+  } else {
+    // If no ID is provided, add a new entry
+    await db.add('jate', { content });
+  }
 };
 
 // TODO: Add logic for a method that gets all the content from the database
@@ -27,4 +33,25 @@ export const getDb = async () => {
   return allContent;
 };
 
+// Load and display content in the editor
+const loadContent = async () => {
+  const contentArray = await getDb();
+  if (contentArray.length) {
+    const latestContent = contentArray[contentArray.length - 1];
+    document.getElementById('editor').value = latestContent.content;
+  } else {
+    console.log('No content found in the database');
+  }
+};
+
+// Initialize the database when the script runs
 initdb();
+
+// Load content when the DOM is ready
+document.addEventListener('DOMContentLoaded', loadContent);
+
+// Automatically save content as the user types
+document.getElementById('editor').addEventListener('input', async () => {
+  const content = document.getElementById('editor').value;
+  await putDb(content);
+});
