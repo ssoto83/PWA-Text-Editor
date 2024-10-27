@@ -13,14 +13,18 @@ const initdb = async () =>
   });
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
+// Add content to the database
 export const putDb = async (content) => {
   console.error('adding content to the database');
   const db = await openDB('jate', 1);
-  if (id) {
-          // If an ID is provided, update the existing entry
+  const existingContent = await db.getAll('jate');
+
+  if (existingContent.length) {
+    // Update the latest entry
+    const id = existingContent[existingContent.length - 1].id;
     await db.put('jate', { id, content });
   } else {
-    // If no ID is provided, add a new entry
+    // Add a new entry if none exists
     await db.add('jate', { content });
   }
 };
@@ -30,7 +34,7 @@ export const getDb = async () => {
   console.error('fetching content from the database');
   const db = await openDB('jate', 1);
   const allContent = await db.getAll('jate');
-  return allContent;
+  return allContent.length ? allContent : null; // Return null if no content
 };
 
 // Load and display content in the editor
