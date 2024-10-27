@@ -33,8 +33,7 @@ Install the dependencies:
 npm install  
 
 ## Usage  
-`npm run dev`  
-`npm run build`  
+
 
 ## Render Link  
 https://pwa-text-editor-dxo4.onrender.com
