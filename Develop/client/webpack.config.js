@@ -34,6 +34,7 @@ module.exports = () => {
         display: 'standalone',
         fingerprints: false,
         inject: true,
+        filename: 'assets/manifest.json',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
