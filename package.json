@@ -16,7 +16,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.0",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "install": "^0.13.0"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
